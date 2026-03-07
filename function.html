@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Functions
+    </title>
+    <link rel="stylesheet" href="function.css">
+</head>
+
+<body>
+    <h1>JavaScript Functions</h1>
+
+    <div id="container">
+        <table border="1" id="functionTable">
+            <tr>
+                <td id="click">click</td>
+                <td id="dblclick">dblclick</td>
+                <td id="auxclick">auxclick</td>
+                <td id="contextmenu">contextmenu</td>
+                <td id="mousedown">mousedown</td>
+            </tr>
+            <tr>
+                <td id="mouseup">mouseup</td>
+                <td id="mousemove">mousemove</td>
+                <td id="mouseover">mouseover</td>
+                <td id="mouseout">mouseout</td>
+                <td id="mouseenter">mouseenter</td>
+
+            </tr>
+            <tr>
+                <td id="mouseleave">mouseleave</td>
+                <td id="wheel">wheel</td>
+                <td id="keydown"> Key Down <span></span>
+                    <input type="text" id="keydowninput">
+                </td>
+                <td id="keyup">keyup <span></span>
+                    <input type="text" id="keyupinput">
+                </td>
+                <td id="keypress">keypress <span></span>
+                    <input type="text" id="keypressinput">
+                </td>
+            </tr>
+            <tr>
+                <td id="focus">focus <span></span>
+                    <input type="text" id="focusinput">
+                </td>
+                <td id="blur">blur<span></span>
+                    <input type="text" id="blurinput">
+                </td>
+                <td id="change">change <span></span>
+                    <input type="text" id="changeinput">
+                </td>
+                <td id="input">input <br><span></span>
+                    <input type="text" id="inputinput">
+                </td>
+            </tr>
+            <tr>
+
+                <td id="copyBox">
+                    Copy this text
+                    <p id="copyText">Select this text and press Ctrl + C</p>
+                </td>
+                <td id="cut">cut <span></span>
+                    <input type="text" id="cutinput">
+                </td>
+
+                <td id="paste">paste <span></span>
+                    <input type="text" id="pasteinput">
+                </td>
+
+                <td id="submit">
+                    submit
+                    <form id="formtest">
+                        <input type="text" placeholder="Enter Name">
+                        <button type="submit">Submit</button>
+                    </form>
+                    <span></span>
+                </td>
+
+                <td id="scroll">
+                    scroll
+                    <div id="scrollbox" style="height:60px; overflow:auto; border:1px solid black;">
+                        Scroll inside this box<br>
+                        line1<br>line2<br>line3<br>line4<br>line5<br>line6
+                    </div>
+                    <span></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td id="dragstart" draggable="true">Drag Me</td>
+
+                <td id="dragover">Drag Over Here</td>
+
+                <td id="drop">Drop Here</td>
+
+                <td id="resize">Resize Window</td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td id="selectionchange">selectionchange</td>
+
+                <td id="visibilitychange">visibilitychange</td>
+
+                <td id="beforeunload">beforeunload</td>
+
+                <td id="pointerdown">pointerdown</td>
+
+                <td id="pointerup">pointerup</td>
+            </tr>
+
+            <tr>
+                <td id="touchstart">touchstart</td>
+
+                <td id="touchend">touchend</td>
+
+                <td id="animationstart">
+                    animationstart
+                    <div id="animationBox"></div>
+                </td>
+
+                <td id="animationend">
+                    animationend
+                    <div id="animationBox2"></div>
+                </td>
+
+                <td id="transitionend">
+                    transitionend
+                    <div id="transitionBox"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="getid">getElementById</td>
+
+                <td id="query">querySelector</td>
+
+                <td id="create">createElement</td>
+
+                <td id="append">appendChild</td>
+
+                <td id="remove">remove</td>
+            </tr>
+
+            <tr>
+                <td id="replace">replaceChild</td>
+
+                <td id="setattr">setAttribute</td>
+
+                <td id="getattr">getAttribute</td>
+
+                <td id="innerhtml">innerHTML</td>
+
+                <td id="textcontent">textContent</td>
+            </tr>
+            <tr>
+                <td id="classlist">classList</td>
+                <td id="addclass">classList.add</td>
+                <td id="removeclass">classList.remove</td>
+                <td id="toggleclass">classList.toggle</td>
+                <td id="hasclass">classList.contains</td>
+            </tr>
+
+            <tr>
+                <td id="children">children</td>
+                <td id="parent">parentElement</td>
+                <td id="firstchild">firstElementChild</td>
+                <td id="lastchild">lastElementChild</td>
+                <td id="nextsibling">nextElementSibling</td>
+            </tr>
+
+            <tr>
+                <td id="previoussibling">previousElementSibling</td>
+                <td id="clone">cloneNode</td>
+                <td id="insertbefore">insertBefore</td>
+                <td id="after">after</td>
+                <td id="before">before</td>
+            </tr>
+            <tr>
+                <td id="queryall">querySelectorAll</td>
+                <td id="closest">closest</td>
+                <td id="matches">matches</td>
+                <td id="dataset">dataset</td>
+                <td id="removechild">removeChild</td>
+            </tr>
+
+            <tr>
+                <td id="replacewith">replaceWith</td>
+                <td id="prepend">prepend</td>
+                <td id="append">append</td>
+                <td id="scrollview">scrollIntoView</td>
+                <td id="rect">getBoundingClientRect</td>
+            </tr>
+        </table>
+
+    </div>
+    <script src="function.js"></script>
+</body>
+
+</html>
