@@ -14,8 +14,9 @@ document.getElementById("auxclick").onauxclick = function() {
     this.style.backgroundColor = "lightblue";
 }
 
-document.getElementById("contextmenu").oncontextmenu = function() {
-    this.innerHTML = "contexmenu clicked";
+document.getElementById("contextmenu").oncontextmenu = function(e) {
+    e.preventDefault();
+    this.innerHTML = "contextmenu clicked";
     this.style.backgroundColor = "lightblue";
 }
 
@@ -94,11 +95,6 @@ document.getElementById("inputinput").addEventListener("input", function(){
     document.getElementById("input").style.backgroundColor = "lightblue";
 });
 
-document.getElementById("inputinput").addEventListener("input", function(){
-    document.getElementById("input").children[0].innerText = "input Triggered "+this.value;
-    document.getElementById("input").style.backgroundColor = "lightblue";
-});
-
 // COPY EVENT
 document.getElementById("copyText").addEventListener("copy", function(event){
 
@@ -140,7 +136,9 @@ document.getElementById("scrollbox").addEventListener("scroll", function(){
 
 
 // DRAG START
-document.getElementById("dragstart").addEventListener("dragstart", function(){
+// must set transfer data for drop to be allowed in some browsers
+document.getElementById("dragstart").addEventListener("dragstart", function(e){
+    e.dataTransfer.setData("text/plain", "dragging");
     this.innerText = "Dragging...";
     this.style.backgroundColor = "lightblue";
 });
@@ -155,7 +153,12 @@ document.getElementById("dragover").addEventListener("dragover", function(e){
 
 
 // DROP EVENT
-document.getElementById("drop").addEventListener("drop", function(e){
+// allow drop by preventing default during dragover
+const dropEl = document.getElementById("drop");
+dropEl.addEventListener("dragover", function(e){
+    e.preventDefault();
+});
+dropEl.addEventListener("drop", function(e){
     e.preventDefault();
     this.innerText = "Dropped";
     this.style.backgroundColor = "lightblue";
@@ -182,10 +185,7 @@ document.addEventListener("visibilitychange", function(){
 });
 
 
-// BEFORE UNLOAD
-window.addEventListener("beforeunload", function(){
-    document.getElementById("beforeunload").innerHTML="Leaving Page";
-});
+
 
 
 // POINTER DOWN
@@ -202,36 +202,6 @@ document.getElementById("pointerup").addEventListener("pointerup", function(){
 });
 
 
-// TOUCH START
-document.getElementById("touchstart").addEventListener("touchstart", function(){
-    this.innerHTML="Touch Started";
-    this.style.backgroundColor="lightblue";
-});
-
-
-// TOUCH END
-document.getElementById("touchend").addEventListener("touchend", function(){
-    this.innerHTML="Touch Ended";
-    this.style.backgroundColor="lightblue";
-});
-
-
-// ANIMATION START
-document.getElementById("animationBox").addEventListener("animationstart", function(){
-    document.getElementById("animationstart").style.backgroundColor="lightblue";
-});
-
-
-// ANIMATION END
-document.getElementById("animationBox2").addEventListener("animationend", function(){
-    document.getElementById("animationend").style.backgroundColor="lightblue";
-});
-
-
-// TRANSITION END
-document.getElementById("transitionBox").addEventListener("transitionend", function(){
-    document.getElementById("transitionend").style.backgroundColor="lightblue";
-});
 
 
 // getElementById
@@ -260,7 +230,7 @@ document.getElementById("create").onclick=function(){
 
 
 // appendChild
-document.getElementById("append").onclick=function(){
+document.getElementById("appendChildBtn").onclick=function(){
     let el=document.createElement("span");
     el.innerText=" Added";
     this.appendChild(el);
@@ -319,6 +289,7 @@ document.getElementById("textcontent").onclick=function(){
 document.getElementById("classlist").onclick=function(){
     this.classList.add("highlight");
     this.innerHTML="classList used";
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -326,6 +297,7 @@ document.getElementById("classlist").onclick=function(){
 document.getElementById("addclass").onclick=function(){
     this.classList.add("highlight");
     this.innerHTML="Class Added";
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -333,6 +305,7 @@ document.getElementById("addclass").onclick=function(){
 document.getElementById("removeclass").onclick=function(){
     this.classList.remove("highlight");
     this.innerHTML="Class Removed";
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -340,6 +313,7 @@ document.getElementById("removeclass").onclick=function(){
 document.getElementById("toggleclass").onclick=function(){
     this.classList.toggle("highlight");
     this.innerHTML="Toggle Class";
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -347,6 +321,7 @@ document.getElementById("toggleclass").onclick=function(){
 document.getElementById("hasclass").onclick=function(){
     let result=this.classList.contains("highlight");
     this.innerHTML="Has class: "+result;
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -355,6 +330,7 @@ document.getElementById("hasclass").onclick=function(){
 document.getElementById("children").onclick=function(){
     let count=document.getElementById("functionTable").children.length;
     this.innerHTML="Children count: "+count;
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -362,6 +338,7 @@ document.getElementById("children").onclick=function(){
 document.getElementById("parent").onclick=function(){
     let parent=this.parentElement.tagName;
     this.innerHTML="Parent: "+parent;
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -369,6 +346,7 @@ document.getElementById("parent").onclick=function(){
 document.getElementById("firstchild").onclick=function(){
     let el=document.getElementById("functionTable").firstElementChild;
     this.innerHTML="First child: "+el.tagName;
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -376,6 +354,7 @@ document.getElementById("firstchild").onclick=function(){
 document.getElementById("lastchild").onclick=function(){
     let el=document.getElementById("functionTable").lastElementChild;
     this.innerHTML="Last child: "+el.tagName;
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -385,6 +364,7 @@ document.getElementById("nextsibling").onclick=function(){
     if(el){
         el.style.backgroundColor="lightblue";
     }
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -394,6 +374,7 @@ document.getElementById("previoussibling").onclick=function(){
     if(el){
         el.style.backgroundColor="lightblue";
     }
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -401,6 +382,7 @@ document.getElementById("previoussibling").onclick=function(){
 document.getElementById("clone").onclick=function(){
     let clone=this.cloneNode(true);
     this.parentElement.appendChild(clone);
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -409,6 +391,7 @@ document.getElementById("insertbefore").onclick=function(){
     let newEl=document.createElement("td");
     newEl.innerText="Inserted";
     this.parentElement.insertBefore(newEl,this);
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -417,6 +400,7 @@ document.getElementById("after").onclick=function(){
     let el=document.createElement("span");
     el.innerText=" After Element";
     this.after(el);
+    this.style.backgroundColor="lightblue";
 };
 
 
@@ -425,6 +409,7 @@ document.getElementById("before").onclick=function(){
     let el=document.createElement("span");
     el.innerText="Before Element ";
     this.before(el);
+    this.style.backgroundColor="lightblue";
 };
 
 // querySelectorAll
@@ -485,7 +470,7 @@ document.getElementById("prepend").onclick=function(){
 
 
 // append
-document.getElementById("append").onclick=function(){
+document.getElementById("appendBtn").onclick=function(){
     let el=document.createElement("span");
     el.innerText=" End";
     this.append(el);
